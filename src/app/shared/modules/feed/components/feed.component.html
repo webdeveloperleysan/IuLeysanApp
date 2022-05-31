@@ -1,5 +1,5 @@
-<div *ngIf="isLoading$ | async">Loading...</div>
-<div *ngIf="error$ | async">Some error happened...</div>
+<iula-loading *ngIf="isLoading$ | async"></iula-loading>
+<iula-error-message *ngIf="error$ | async"></iula-error-message>
 
 <div *ngIf="feed$ | async">
   <div class="article-preview" *ngFor="let article of (feed$ | async)?.articles">
