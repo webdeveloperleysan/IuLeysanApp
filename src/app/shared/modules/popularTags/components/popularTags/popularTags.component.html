@@ -1,0 +1,12 @@
+<iula-loading *ngIf="isLoading$ | async"></iula-loading>
+<iula-error-message *ngIf="error$ | async"></iula-error-message>
+<div class="sidebar"  *ngIf="popularTags$ | async">
+  <p>Popular Tags</p>
+  <div class="tag-list">
+    <a *ngFor="let popularTag of popularTags$ | async"
+       [routerLink]="['/tags',popularTag]"
+       class="tag-default tag-pill">
+      {{popularTag}}
+    </a>
+  </div>
+</div>
