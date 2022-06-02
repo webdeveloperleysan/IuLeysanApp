@@ -6,4 +6,5 @@ export interface AppStateInterface {
   auth: AuthStateInterface
   feed: FeedStateInterface
   popularTags: PopularTagsStateInterface
+  article: AuthStateInterface
 }

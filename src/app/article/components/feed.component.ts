@@ -1,6 +1,6 @@
 import {Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from "@angular/core";
 import {select, Store} from "@ngrx/store";
-import {getFeedAction} from "../store/actions/getFeed.action";
+import {getArticleAction} from "../store/actions/getArticle.action";
 import {Observable, Subscription} from "rxjs";
 import {GetFeedResponseInterface} from "../types/getFeedResponse.interface";
 import {errorSelector, feedSelector, isLoadingSelector} from "../store/selectors";
@@ -76,7 +76,7 @@ export class FeedComponent implements OnInit, OnDestroy, OnChanges {
       ...parsedUrl.query
     })
     const apiUrlWithParams = `${parsedUrl.url}?${stringifiedParams}`
-    this.store.dispatch(getFeedAction({url: apiUrlWithParams}))
+    this.store.dispatch(getArticleAction({url: apiUrlWithParams}))
   }
 
 }
