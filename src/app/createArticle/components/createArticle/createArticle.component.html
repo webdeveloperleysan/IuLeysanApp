@@ -1,6 +1,7 @@
-Create Article
+
 <iula-article-form
   [initialValues]="initialValues"
-  [isSubmitting]="false"
+  [isSubmitting]="isSubmitting$ | async"
+  [errors]="backendErrors$ | async"
   (articleSubmit)="onSubmit($event)"
 ></iula-article-form>
