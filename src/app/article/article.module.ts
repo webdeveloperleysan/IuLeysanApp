@@ -24,16 +24,14 @@ const routes = [
 @NgModule({
   imports: [
     CommonModule,
-    EffectsModule.forFeature([GetArticleEffect, DeleteArticleEffect]),
-    StoreModule.forFeature('article', reducers),
-    RouterModule,
-    ErrorMessageModule,
-    LoadingModule,
     RouterModule.forChild(routes),
+    StoreModule.forFeature('article', reducers),
+    EffectsModule.forFeature([GetArticleEffect, DeleteArticleEffect]),
+    LoadingModule,
+    ErrorMessageModule,
     TagListModule
   ],
   declarations: [ArticleComponent],
-  exports: [],
   providers: [SharedArticleService, ArticleService]
 })
 export class ArticleModule {}

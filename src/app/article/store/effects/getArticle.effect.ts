@@ -10,7 +10,7 @@ import {
   getArticleFailureAction,
   getArticleSuccessAction,
 } from "../actions/getArticle.action";
-import {ArticleInterface} from "../../../shared/types/article.interface";
+import {ArticleInterface} from "src/app/shared/types/article.interface";
 
 @Injectable()
 export class GetArticleEffect {

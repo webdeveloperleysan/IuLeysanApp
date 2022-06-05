@@ -8,13 +8,13 @@ import {UtilsService} from "../../../services/utils.service";
   styleUrls: ['./pagination.component.scss']
 })
 export class PaginationComponent implements OnInit{
-  @Input('total') totalProps!: number
-  @Input('limit') limitProps!: number
-  @Input('currentPage') currentPageProps!: number
-  @Input('url') urlProps!: string
+  @Input('total') totalProps: number
+  @Input('limit') limitProps: number
+  @Input('currentPage') currentPageProps: number
+  @Input('url') urlProps: string
 
-  pagesCount!: number
-  pages!: number[]
+  pagesCount: number
+  pages: number[]
 
   constructor(private utilsService: UtilsService) {
   }

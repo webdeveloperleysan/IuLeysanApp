@@ -16,15 +16,15 @@ import {parseUrl, stringify} from "query-string";
 })
 export class FeedComponent implements OnInit, OnDestroy, OnChanges {
   @Input('apiUrl')
-  apiUrlProps!: string;
+  apiUrlProps: string;
 
-  isLoading$!: Observable<boolean>;
-  error$!: Observable<string | null>
-  feed$!: Observable<GetFeedResponseInterface | null>
+  isLoading$: Observable<boolean>;
+  error$: Observable<string | null>
+  feed$: Observable<GetFeedResponseInterface | null>
   limit = environment.limit
-  baseUrl !: string
-  queryParamsSubscription !: Subscription
-  currentPage!: number
+  baseUrl : string
+  queryParamsSubscription: Subscription
+  currentPage: number
 
   constructor(private store: Store, private router: Router, private route: ActivatedRoute) {
   }
@@ -43,7 +43,7 @@ export class FeedComponent implements OnInit, OnDestroy, OnChanges {
     //here is logic for the case when we don't change route, but we want to change slug
     const isApiUrlChanged =
       !changes['apiUrlProps'].firstChange &&
-      changes['apiUrlProps'].currentValue !==
+      changes['apiUrlProps'].currentValue ==
       changes['apiUrlProps'].previousValue
 
     if(isApiUrlChanged){
@@ -61,7 +61,7 @@ export class FeedComponent implements OnInit, OnDestroy, OnChanges {
   initializeListeners(): void {
     this.queryParamsSubscription = this.route.queryParams.subscribe(
       (params: Params) =>{
-        this.currentPage = Number(params['page'] || '1')
+        this.currentPage = Number(params.page|| '1')
         console.log('currentPage', this.currentPage)
         this.fetchFeed()
     })

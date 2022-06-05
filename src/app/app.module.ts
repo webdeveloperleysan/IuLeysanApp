@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { AppComponent } from 'src/app/app.component';
 import { AuthModule } from 'src/app/auth/auth.module';
 import {StoreModule} from "@ngrx/store";
 import {environment} from "src/environments/environment";
-import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {EffectsModule} from "@ngrx/effects";
 import {TopBarModule} from "./shared/modules/topBar/topBar.module";
 import {PersistanceService} from "./shared/services/persistance.service";
@@ -18,6 +17,7 @@ import {YourFeedModule} from "./yourlFeed/yourFeed.module";
 import {TagFeedModule} from "./tagFeed/tagFeed.module";
 import {ArticleModule} from "./article/article.module";
 import {CreateArticleModule} from "./createArticle/createArticle.module";
+import {EditArticleModule} from "./editArticle/editArticle.module";
 
 @NgModule({
   declarations: [
@@ -41,7 +41,8 @@ import {CreateArticleModule} from "./createArticle/createArticle.module";
     YourFeedModule,
     TagFeedModule,
     CreateArticleModule,
-    ArticleModule
+    ArticleModule,
+    EditArticleModule
   ],
   providers: [
     PersistanceService,
@@ -49,6 +50,7 @@ import {CreateArticleModule} from "./createArticle/createArticle.module";
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
+
     }
   ],
   bootstrap: [AppComponent]

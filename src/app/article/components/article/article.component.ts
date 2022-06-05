@@ -16,7 +16,7 @@ import {deleteArticleAction} from "../../store/actions/deleteArticle.action";
 })
 export class ArticleComponent implements OnInit, OnDestroy{
   slug: string
-  article: ArticleInterface | null
+  article: ArticleInterface
   articleSubscription: Subscription //to store and destroy subscription
   isLoading$: Observable<boolean>
   error$: Observable<string | null>
@@ -34,12 +34,6 @@ export class ArticleComponent implements OnInit, OnDestroy{
     this.articleSubscription.unsubscribe()
   }
 
-  initializeListeners(): void{
-    this.articleSubscription = this.store.pipe(select(articleSelector))
-      .subscribe((article: ArticleInterface | null) =>{
-        this.article = article
-      })
-  }
 
   initializeValues(): void{
     this.slug = this.route.snapshot.paramMap.get('slug')
@@ -59,6 +53,14 @@ export class ArticleComponent implements OnInit, OnDestroy{
         return currentUser.username ===article.author.username
         }
       ))
+  }
+
+  initializeListeners(): void{
+    this.articleSubscription = this.store
+      .pipe(select(articleSelector))
+      .subscribe((article: ArticleInterface | null) =>{
+        this.article = article
+      })
   }
 
   fetchData():void{

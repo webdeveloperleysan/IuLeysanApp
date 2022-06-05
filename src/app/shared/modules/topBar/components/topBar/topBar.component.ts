@@ -10,15 +10,14 @@ import {CurrentUserInterface} from "../../../../types/currentUser.interface";
   styleUrls: ['./topBar.component.scss']
 })
 export class TopBarComponent implements OnInit{
-  isLoggedIn$!: Observable<boolean>
-  isAnonymous$!: Observable<boolean>
-  currentUser$!: Observable<CurrentUserInterface | null>
+  isLoggedIn$: Observable<boolean>
+  isAnonymous$: Observable<boolean>
+  currentUser$: Observable<CurrentUserInterface | null>
 
   constructor(private store: Store) {
   }
 
   ngOnInit(): void {
-    // @ts-ignore
     this.isLoggedIn$ = this.store.pipe(select(isLoggedInSelector))
     this.isAnonymous$ = this.store.pipe(select(isAnonymousSelector))
     this.currentUser$ = this.store.pipe(select(currentUserSelector))

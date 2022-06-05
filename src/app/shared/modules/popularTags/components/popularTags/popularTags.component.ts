@@ -11,9 +11,9 @@ import {errorSelector, isLoadingSelector, popularTagsSelector} from "../../store
 })
 
 export class PopularTagsComponent implements OnInit {
-  popularTags$!: Observable<PopularTagType[] | null>
-  isLoading$!: Observable<boolean>
-  error$!: Observable<string | null>
+  popularTags$: Observable<PopularTagType[] | null>
+  isLoading$: Observable<boolean>
+  error$: Observable<string | null>
   constructor(private store: Store) {
   }
 

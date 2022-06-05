@@ -7,9 +7,9 @@ import {BackendErrorsInterface} from "../../../../types/backendErrors.interface"
   styleUrls: ['./backendErrorMessages.component.scss']
 })
 export class BackendErrorMessagesComponent implements OnInit {
-  @Input('backendErrors') backendErrorsProps!: BackendErrorsInterface
+  @Input('backendErrors') backendErrorsProps: BackendErrorsInterface
 
-  errorMessages!: string[]
+  errorMessages: string[]
 
   ngOnInit(): void {
     this.errorMessages = Object.keys(this.backendErrorsProps).map(

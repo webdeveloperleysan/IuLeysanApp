@@ -1,8 +1,8 @@
 import {createAction, props} from "@ngrx/store";
 import {ActionTypes} from "../actionTypes";
-import {ArticleInputInterface} from "../../../shared/types/articleInput.interface";
-import {ArticleInterface} from "../../../shared/types/article.interface";
-import {BackendErrorsInterface} from "../../../shared/types/backendErrors.interface";
+import {ArticleInputInterface} from "src/app/shared/types/articleInput.interface";
+import {ArticleInterface} from "src/app/shared/types/article.interface";
+import {BackendErrorsInterface} from "src/app/shared/types/backendErrors.interface";
 
 export const createArticleAction = createAction(
   ActionTypes.CREATE_ARTICLE,

@@ -15,9 +15,9 @@ import {LoginRequestInterface} from "../../types/loginRequest.interface";
 })
 
 export class LoginComponent implements OnInit {
-  form!: FormGroup;
-  isSubmitting$!: Observable<boolean>
-  backendErrors$!: Observable<BackendErrorsInterface | null> ;
+  form: FormGroup;
+  isSubmitting$: Observable<boolean>
+  backendErrors$: Observable<BackendErrorsInterface | null> ;
 
   constructor(
     private fb: FormBuilder,

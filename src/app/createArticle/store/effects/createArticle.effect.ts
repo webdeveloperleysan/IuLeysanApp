@@ -8,9 +8,9 @@ import {
   createArticleAction,
   createArticleFailureAction,
   createArticleSuccessAction
-} from "../actions/createArticle.action";
+} from "src/app/createArticle/store/actions/createArticle.action";
 import {CreateArticleService} from "../../services/createArticle.service";
-import {ArticleInterface} from "../../../shared/types/article.interface";
+import {ArticleInterface} from "src/app/shared/types/article.interface";
 
 @Injectable()
 export class CreateArticleEffect{

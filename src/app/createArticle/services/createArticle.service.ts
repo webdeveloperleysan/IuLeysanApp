@@ -1,10 +1,10 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import {ArticleInputInterface} from "../../shared/types/articleInput.interface";
+import {ArticleInputInterface} from "src/app/shared/types/articleInput.interface";
 import {map, Observable} from "rxjs";
-import {environment} from "../../../environments/environment";
-import {ArticleInterface} from "../../shared/types/article.interface";
-import {SaveArticleResponseInterface} from "../../shared/types/saveArticleResponse.interface";
+import {environment} from "src/environments/environment";
+import {ArticleInterface} from "src/app/shared/types/article.interface";
+import {SaveArticleResponseInterface} from "src/app/shared/types/saveArticleResponse.interface";
 
 @Injectable ()
 export class CreateArticleService {
@@ -20,6 +20,7 @@ export class CreateArticleService {
       .pipe(
         map((response: SaveArticleResponseInterface) => {
           return response.article
-        }))
+        })
+      )
   }
 }
