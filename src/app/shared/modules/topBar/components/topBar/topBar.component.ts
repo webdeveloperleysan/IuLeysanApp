@@ -1,8 +1,8 @@
 import {Component, OnInit} from "@angular/core";
 import {Observable} from "rxjs";
 import {select, Store} from "@ngrx/store";
-import {currentUserSelector, isAnonymousSelector, isLoggedInSelector} from "../../../../../auth/store/selectors";
-import {CurrentUserInterface} from "../../../../types/currentUser.interface";
+import {currentUserSelector, isAnonymousSelector, isLoggedInSelector} from "src/app/auth/store/selectors";
+import {CurrentUserInterface} from "src/app/shared/types/currentUser.interface";
 
 @Component({
   selector: 'iula-topBar',

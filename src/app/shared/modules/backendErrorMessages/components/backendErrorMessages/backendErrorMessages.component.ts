@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from "@angular/core";
-import {BackendErrorsInterface} from "../../../../types/backendErrors.interface";
+import {BackendErrorsInterface} from "src/app/shared/types/backendErrors.interface";
 
 @Component({
   selector: 'iula-backend-error-messages',
@@ -14,7 +14,7 @@ export class BackendErrorMessagesComponent implements OnInit {
   ngOnInit(): void {
     this.errorMessages = Object.keys(this.backendErrorsProps).map(
       (name:string)=> {
-      const messages = this.backendErrorsProps[name].join(', ')
+      const messages = this.backendErrorsProps[name].join(' ')
 
       return `${name} ${messages}`
     }

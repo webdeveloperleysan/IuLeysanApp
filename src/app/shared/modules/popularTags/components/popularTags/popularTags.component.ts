@@ -1,9 +1,9 @@
 import {Component, OnInit} from "@angular/core";
 import {select, Store} from "@ngrx/store";
-import {getPopularTagsAction} from "../../store/actions/getPopularTags.action";
+import {getPopularTagsAction} from "src/app/shared/modules/popularTags/store/actions/getPopularTags.action";
 import {Observable} from "rxjs";
-import {PopularTagType} from "../../../../types/popularTag.type";
-import {errorSelector, isLoadingSelector, popularTagsSelector} from "../../store/selectors";
+import {PopularTagType} from "src/app/shared/types/popularTag.type";
+import {errorSelector, isLoadingSelector, popularTagsSelector} from "src/app/shared/modules/popularTags/store/selectors";
 
 @Component({
   selector: 'iula-popular-tags',

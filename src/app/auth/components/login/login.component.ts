@@ -2,11 +2,10 @@ import {Component, OnInit} from '@angular/core'
 import {FormGroup, FormBuilder, Validators} from '@angular/forms'
 import {select, Store} from "@ngrx/store";
 import {Observable} from "rxjs";
-import {isSubmittingSelector, validationErrorsSelector} from "../../store/selectors";
-import {AuthService} from "../../services/auth.service";
-import {BackendErrorsInterface} from "../../../shared/types/backendErrors.interface";
-import {loginAction} from "../../store/actions/login.action";
-import {LoginRequestInterface} from "../../types/loginRequest.interface";
+import {isSubmittingSelector, validationErrorsSelector} from "src/app/auth/store/selectors";
+import {BackendErrorsInterface} from "src/app/shared/types/backendErrors.interface";
+import {loginAction} from "src/app/auth/store/actions/login.action";
+import {LoginRequestInterface} from "src/app/auth/types/loginRequest.interface";
 
 @Component({
   selector: 'iula-login',
@@ -17,13 +16,12 @@ import {LoginRequestInterface} from "../../types/loginRequest.interface";
 export class LoginComponent implements OnInit {
   form: FormGroup;
   isSubmitting$: Observable<boolean>
-  backendErrors$: Observable<BackendErrorsInterface | null> ;
+  backendErrors$: Observable<BackendErrorsInterface | null>
 
   constructor(
     private fb: FormBuilder,
-    private store: Store,
-    private authService: AuthService)
-  {}
+    private store: Store
+  ) {}
 
   ngOnInit(): void {
     this.initializeForm()
@@ -36,14 +34,13 @@ export class LoginComponent implements OnInit {
   }
 
   initializeForm(): void {
-    console.log('initializeForm')
     this.form = this.fb.group({
       email: ['', Validators.required],
       password: ['', Validators.required]
     })
   }
+
   onSubmit(): void {
-    console.log('submit', this.form.value, this.form.valid)
     const request: LoginRequestInterface = {
       user: this.form.value
     }

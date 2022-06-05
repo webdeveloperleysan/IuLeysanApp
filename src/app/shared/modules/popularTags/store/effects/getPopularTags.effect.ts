@@ -2,13 +2,13 @@ import {Injectable} from "@angular/core";
 import {Actions, createEffect, ofType} from "@ngrx/effects";
 import {switchMap, map, catchError} from "rxjs";
 import {of} from "rxjs";
-import {PopularTagsService} from "../../services/popularTags.service";
+import {PopularTagsService} from "src/app/shared/modules/popularTags/services/popularTags.service";
 import {
   getPopularTagsFailureAction,
   getPopularTagsAction,
   getPopularTagsSuccessAction
-} from "../actions/getPopularTags.action";
-import {PopularTagType} from "../../../../types/popularTag.type";
+} from "src/app/shared/modules/popularTags/store/actions/getPopularTags.action";
+import {PopularTagType} from "src/app/shared/types/popularTag.type";
 
 @Injectable()
 export class GetPopularTagsEffect{

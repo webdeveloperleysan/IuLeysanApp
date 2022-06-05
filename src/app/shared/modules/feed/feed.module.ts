@@ -5,11 +5,11 @@ import {EffectsModule} from "@ngrx/effects";
 import {GetFeedEffect} from "./store/effects/getFeed.effect";
 import {StoreModule} from "@ngrx/store";
 import {reducers} from "src/app/shared/modules/feed/store/reducers";
-import {FeedService} from "./services/feed.service";
+import {FeedService} from "src/app/shared/modules/feed/services/feed.service";
 import {RouterModule} from "@angular/router";
-import {ErrorMessageModule} from "../errorMessage/errorMessage.module";
-import {LoadingModule} from "../loading/loading.module";
-import {PaginationModule} from "../pagination/pagination.module";
+import {ErrorMessageModule} from "src/app/shared/modules/errorMessage/errorMessage.module";
+import {LoadingModule} from "src/app/shared/modules/loading/loading.module";
+import {PaginationModule} from "src/app/shared/modules/pagination/pagination.module";
 import {TagListModule} from "../tagList/tagList.module";
 
 

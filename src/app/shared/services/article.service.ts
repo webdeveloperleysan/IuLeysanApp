@@ -2,7 +2,7 @@ import {Injectable} from "@angular/core";
 import {map, Observable} from "rxjs";
 import {environment} from "src/environments/environment";
 import {HttpClient} from "@angular/common/http";
-import {GetArticleResponseInterface} from "../types/getArticleResponse.interface";
+import {GetArticleResponseInterface} from "src/app/shared/types/getArticleResponse.interface";
 import {ArticleInterface} from "../types/article.interface";
 
 @Injectable()

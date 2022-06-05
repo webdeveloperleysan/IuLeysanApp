@@ -4,9 +4,9 @@ import {switchMap, map, catchError} from "rxjs";
 
 import {of} from "rxjs";
 
-import {GetFeedResponseInterface} from "../../types/getFeedResponse.interface";
-import {FeedService} from "../../services/feed.service";
-import {getFeedAction, getFeedFailureAction, getFeedSuccessAction} from "../actions/getFeed.action";
+import {GetFeedResponseInterface} from "src/app/shared/modules/feed/types/getFeedResponse.interface";
+import {FeedService} from "src/app/shared/modules/feed/services/feed.service";
+import {getFeedAction, getFeedFailureAction, getFeedSuccessAction} from "src/app/shared/modules/feed/store/actions/getFeed.action";
 
 @Injectable()
 export class GetFeedEffect{

@@ -1,6 +1,6 @@
 import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
-import {TopBarComponent} from "./components/topBar/topBar.component";
+import {TopBarComponent} from "src/app/shared/modules/topBar/components/topBar/topBar.component";
 import {RouterModule} from "@angular/router";
 
 @NgModule({

@@ -1,30 +1,33 @@
 <iula-loading *ngIf="isLoading$ | async"></iula-loading>
+
 <iula-error-message *ngIf="error$ | async"></iula-error-message>
 
 <div *ngIf="feed$ | async">
-  <div class="article-preview" *ngFor="let article of (feed$ | async)?.articles">
+  <div class="article-preview" *ngFor="let article of (feed$ | async)?.['articles']">
     <div class="article-meta">
-      <a [routerLink]="['/profiles', article.author.username]">
-        <img [src]="article.author.image"  alt="Author of the article"/>
+      <a [routerLink]="['/profiles', article['author'].username]">
+        <img [src]="article['author'].image"  alt="Author of the article"/>
       </a>
+
       <div class="info">
-        <a [routerLink]="['/profiles', article.author.username]">
-          {{article.author.username}}
+        <a [routerLink]="['/profiles', article['author'].username]" class="author">
+          {{article['author'].username}}
         </a>
-        <span class="date">{{article.createdAt}}</span>
+        <span class="date">{{ article['createdAt'] }}</span>
       </div>
       <div class="pull-xs-right">
         ADD TO FAVORITES
       </div>
     </div>
-    <a [routerLink]="['/articles', article.slug]" class="preview-link">
+    <a [routerLink]="['/articles', article['slug']]" class="preview-link">
       <h1>{{article.title}}</h1>
       <p>{{article.description}}</p>
-      <iula-tag-list [tags]="article.tagList"></iula-tag-list>
+      <span>Read more..</span>
+      <iula-tag-list [tags]="article['tagList']"></iula-tag-list>
     </a>
   </div>
   <iula-pagination
-    [total]="(feed$ | async)?.articlesCount"
+    [total]="(feed$ | async)?.['articlesCount']"
     [limit]="limit"
     [url]="baseUrl"
     [currentPage]="currentPage"

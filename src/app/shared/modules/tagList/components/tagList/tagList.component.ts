@@ -1,5 +1,5 @@
 import {Component, Input} from "@angular/core";
-import {PopularTagType} from "../../../../types/popularTag.type";
+import {PopularTagType} from "src/app/shared/types/popularTag.type";
 
 @Component({
   selector: 'iula-tag-list',

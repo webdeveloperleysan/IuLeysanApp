@@ -3,11 +3,9 @@ import {FormGroup, FormBuilder, Validators} from '@angular/forms'
 import {select, Store} from "@ngrx/store";
 import { registerAction } from 'src/app/auth/store/actions/register.action'
 import {Observable} from "rxjs";
-import {isSubmittingSelector, validationErrorsSelector} from "../../store/selectors";
-import {AuthService} from "../../services/auth.service";
-import {CurrentUserInterface} from "../../../shared/types/currentUser.interface";
-import {RegisterRequestInterface} from "../../types/registerRequest.inteface";
-import {BackendErrorsInterface} from "../../../shared/types/backendErrors.interface";
+import {isSubmittingSelector, validationErrorsSelector} from "src/app/auth/store/selectors";
+import {RegisterRequestInterface} from "src/app/auth/types/registerRequest.inteface";
+import {BackendErrorsInterface} from "src/app/shared/types/backendErrors.interface";
 
 @Component({
   selector: 'iula-register',
@@ -18,13 +16,11 @@ import {BackendErrorsInterface} from "../../../shared/types/backendErrors.interf
 export class RegisterComponent implements OnInit {
   form: FormGroup;
   isSubmitting$: Observable<boolean>
-  backendErrors$: Observable<BackendErrorsInterface | null> ;
+  backendErrors$: Observable<BackendErrorsInterface | null>
 
   constructor(
     private fb: FormBuilder,
-    private store: Store,
-    private authService: AuthService)
-  {}
+    private store: Store) {}
 
   ngOnInit(): void {
     this.initializeForm()

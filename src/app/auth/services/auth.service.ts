@@ -1,11 +1,12 @@
 import {Injectable} from "@angular/core";
-import {RegisterRequestInterface} from "../types/registerRequest.inteface";
+import {RegisterRequestInterface} from "src/app/auth/types/registerRequest.inteface";
 import {map, Observable} from "rxjs";
-import {CurrentUserInterface} from "../../shared/types/currentUser.interface";
+import {CurrentUserInterface} from "src/app/shared/types/currentUser.interface";
 import {HttpClient} from "@angular/common/http";
-import {environment} from "../../../environments/environment";
-import {AuthResponseInterface} from "../types/authResponse.interface";
-import {LoginRequestInterface} from "../types/loginRequest.interface";
+import {environment} from "src/environments/environment";
+import {AuthResponseInterface} from "src/app/auth/types/authResponse.interface";
+import {LoginRequestInterface} from "src/app/auth/types/loginRequest.interface";
+import {CurrentUserInputInterface} from "src/app/shared/types/currentUserInput.interface";
 
 @Injectable()
 export class AuthService{
@@ -33,9 +34,13 @@ export class AuthService{
 
   getCurrentUser(): Observable<CurrentUserInterface> {
     const url = environment.apiUrl + '/user'
+    return this.http.get(url).pipe(map(this.getUser))
+  }
 
-    return this.http
-      .get<AuthResponseInterface>(url)
-      .pipe(map(this.getUser))
+  updateCurrentUser(
+    currentUserInput: CurrentUserInputInterface
+  ): Observable<CurrentUserInterface>{
+    const url = environment.apiUrl + '/user'
+    return this.http.put(url, currentUserInput).pipe(map(this.getUser))
   }
 }

@@ -3,7 +3,7 @@
       class="page-item"
       [ngClass]="{active: currentPageProps === page}"
   >
-    <a [routerLink]="urlProps" class="page-link" [queryParams]="{page: page}">
+    <a [routerLink]="[urlProps]" [queryParams]="{page: page}" class="page-link" >
       {{page}}
     </a>
   </li>

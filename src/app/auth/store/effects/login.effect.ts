@@ -1,13 +1,13 @@
 import {Injectable} from "@angular/core";
 import {Actions, createEffect, ofType} from "@ngrx/effects";
 import {switchMap, map, catchError, tap} from "rxjs";
-import {AuthService} from "../../services/auth.service";
-import {CurrentUserInterface} from "../../../shared/types/currentUser.interface";
+import {AuthService} from "src/app/auth/services/auth.service";
+import {CurrentUserInterface} from "src/app/shared/types/currentUser.interface";
 import {of} from "rxjs";
 import {HttpErrorResponse} from "@angular/common/http";
-import {PersistanceService} from "../../../shared/services/persistance.service";
+import {PersistanceService} from "src/app/shared/services/persistance.service";
 import {Router} from "@angular/router";
-import {loginAction, loginFailureAction, loginSuccessAction} from "../actions/login.action";
+import {loginAction, loginFailureAction, loginSuccessAction} from "src/app/auth/store/actions/login.action";
 
 @Injectable()
 export class LoginEffect{
@@ -31,7 +31,6 @@ export class LoginEffect{
       this.actions$.pipe(
         ofType(loginSuccessAction),
         tap(()=> {
-          console.log('succ')
           this.router.navigateByUrl('/')
         })
       ),

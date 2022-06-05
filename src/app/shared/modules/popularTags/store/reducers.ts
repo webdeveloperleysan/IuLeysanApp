@@ -5,7 +5,7 @@ import {
   getPopularTagsFailureAction,
   getPopularTagsSuccessAction
 } from "./actions/getPopularTags.action";
-import {GetPopularTagsResponseInterface} from "../types/getPopularTagsResponse.interface";
+
 
 
 const initialState: PopularTagsStateInterface = {

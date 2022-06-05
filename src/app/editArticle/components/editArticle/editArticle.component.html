@@ -1,0 +1,8 @@
+<iula-loading *ngIf="isLoading$ | async"></iula-loading>
+<iula-article-form
+  *ngIf="initialValues$ | async"
+  [initialValues]="initialValues$ | async"
+  [isSubmitting]="isSubmitting$ | async"
+  [errors]="backendErrors$ | async"
+  (articleSubmit)="onSubmit($event)"
+></iula-article-form>

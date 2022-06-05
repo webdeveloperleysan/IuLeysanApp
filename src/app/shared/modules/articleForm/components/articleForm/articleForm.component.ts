@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
-import {ArticleInputInterface} from "../../../../types/articleInput.interface";
-import {BackendErrorsInterface} from "../../../../types/backendErrors.interface";
+import {ArticleInputInterface} from "src/app/shared/types/articleInput.interface";
+import {BackendErrorsInterface} from "src/app/shared/types/backendErrors.interface";
 import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
@@ -34,5 +34,4 @@ export class ArticleFormComponent implements OnInit {
   onSubmit(): void{
     this.articleSubmitEvent.emit(this.form.value)
   }
-
 }

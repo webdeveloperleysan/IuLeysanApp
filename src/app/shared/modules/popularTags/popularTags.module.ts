@@ -1,17 +1,18 @@
 import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
-import {PopularTagsService} from "./services/popularTags.service";
-import {GetPopularTagsEffect} from "./store/effects/getPopularTags.effect";
+import {PopularTagsService} from "src/app/shared/modules/popularTags/services/popularTags.service";
+import {GetPopularTagsEffect} from "src/app/shared/modules/popularTags/store/effects/getPopularTags.effect";
 import {EffectsModule} from "@ngrx/effects";
 import {StoreModule} from "@ngrx/store";
 import {reducers} from "src/app/shared/modules/popularTags/store/reducers";
-import {PopularTagsComponent} from "./components/popularTags/popularTags.component";
-import {LoadingModule} from "../loading/loading.module";
+import {PopularTagsComponent} from "src/app/shared/modules/popularTags/components/popularTags/popularTags.component";
+import {LoadingModule} from "src/app/shared/modules/loading/loading.module";
 import {RouterModule} from "@angular/router";
-import {ErrorMessageModule} from "../errorMessage/errorMessage.module";
+import {ErrorMessageModule} from "src/app/shared/modules/errorMessage/errorMessage.module";
 
 @NgModule({
-  imports: [CommonModule,
+  imports: [
+    CommonModule,
     StoreModule.forFeature('popularTags', reducers),
     EffectsModule.forFeature([GetPopularTagsEffect]),
     RouterModule,

@@ -1,4 +1,4 @@
-import {AppStateInterface} from "../../../types/appState.interface";
+
 import {PopularTagsStateInterface} from "../types/popularTagsState.interface";
 import {createFeatureSelector, createSelector} from "@ngrx/store";
 

@@ -1,12 +1,12 @@
 import {Injectable} from "@angular/core";
 import {Actions, createEffect, ofType} from "@ngrx/effects";
-import {registerAction, registerFailureAction, registerSuccessAction} from "../actions/register.action";
+import {registerAction, registerFailureAction, registerSuccessAction} from "src/app/auth/store/actions/register.action";
 import {switchMap, map, catchError, tap} from "rxjs";
-import {AuthService} from "../../services/auth.service";
-import {CurrentUserInterface} from "../../../shared/types/currentUser.interface";
+import {AuthService} from "src/app/auth/services/auth.service";
+import {CurrentUserInterface} from "src/app/shared/types/currentUser.interface";
 import {of} from "rxjs";
 import {HttpErrorResponse} from "@angular/common/http";
-import {PersistanceService} from "../../../shared/services/persistance.service";
+import {PersistanceService} from "src/app/shared/services/persistance.service";
 import {Router} from "@angular/router";
 
 @Injectable()
@@ -31,7 +31,6 @@ export class RegisterEffect{
       this.actions$.pipe(
     ofType(registerSuccessAction),
     tap(()=> {
-      console.log('succ')
       this.router.navigateByUrl('/')
     })
     ),
