@@ -40,10 +40,9 @@ export class FeedComponent implements OnInit, OnDestroy, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     //here is logic for the case when we don't change route, but we want to change slug
     const isApiUrlChanged =
-      !changes["apiUrlProps"].firstChange &&
-      changes["apiUrlProps"].currentValue !==
-      changes["apiUrlProps"].previousValue
-
+      !changes.apiUrlProps.firstChange &&
+      changes.apiUrlProps.currentValue !==
+      changes.apiUrlProps.previousValue
     if(isApiUrlChanged){
       this.fetchFeed()
     }
