@@ -37,7 +37,8 @@ const routes: Routes = [
       RegisterEffect,
       LoginEffect,
       GetCurrentUserEffect,
-      UpdateCurrentUserEffect
+      UpdateCurrentUserEffect,
+      LoginEffect
     ]),
     BackendErrorMessagesModule
   ],
