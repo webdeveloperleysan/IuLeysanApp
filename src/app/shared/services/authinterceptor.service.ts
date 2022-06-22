@@ -3,6 +3,7 @@ import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from "@angular/com
 import {Observable} from "rxjs";
 import {PersistanceService} from "src/app/shared/services/persistance.service";
 
+//AuthInterceptor is middleware between front-end and API request
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor{
   constructor(private persistanceService: PersistanceService) {
@@ -14,6 +15,7 @@ export class AuthInterceptor implements HttpInterceptor{
     const token = this.persistanceService.get('accessToken')
     request = request.clone({
       setHeaders:{
+        //if token exists I get, if token does not exist - I get empty string
         Authorization: token ? `Token ${token}` : ''
       }
     })

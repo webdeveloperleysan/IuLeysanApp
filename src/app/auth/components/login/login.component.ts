@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core'
-import {FormGroup, FormBuilder, Validators} from '@angular/forms'
+import {FormGroup, FormBuilder} from '@angular/forms'
 import {select, Store} from "@ngrx/store";
 import {Observable} from "rxjs";
 import {isSubmittingSelector, validationErrorsSelector} from "src/app/auth/store/selectors";
@@ -35,8 +35,8 @@ export class LoginComponent implements OnInit {
 
   initializeForm(): void {
     this.form = this.fb.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required]
+      email: '',
+      password: ''
     })
   }
 

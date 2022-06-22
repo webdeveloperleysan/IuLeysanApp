@@ -14,13 +14,11 @@ export class EditArticleService {
     slug: string,
     articleInput: ArticleInputInterface
   ): Observable<ArticleInterface>{
-    const fullUrl = `${environment.apiUrl} /articles/${slug}`
+    const fullUrl = `${environment.apiUrl}/articles/${slug}`
 
     return this.http
       .put<SaveArticleResponseInterface>(fullUrl, articleInput)
       .pipe(
-        map((response: SaveArticleResponseInterface) => {
-          return response.article
-        }))
+        map((response: SaveArticleResponseInterface) => response.article))
   }
 }

@@ -5,11 +5,11 @@ import {ArticleFormModule} from "../shared/modules/articleForm/articleForm.modul
 import {RouterModule} from "@angular/router";
 import {EditArticleService} from "./services/editArticle.service";
 import {EffectsModule} from "@ngrx/effects";
-import {UpdateArticleEffect} from "./store/effects/updateArticle.effect";
+import {UpdateArticleEffect} from "src/app/editArticle/store/effects/updateArticle.effect";
 import {StoreModule} from "@ngrx/store";
-import {reducers} from "./store/reducers";
-import {ArticleService as SharedArticleService} from "src/app/shared/services/article.service";
-import {GetArticleEffect} from "./store/effects/getArticle.effect";
+import {reducers} from "src/app/editArticle/store/reducers";
+import {ArticleSharedService as SharedArticleService} from "src/app/shared/services/articleShared.service";
+import {GetArticleEffect} from "src/app/editArticle/store/effects/getArticle.effect";
 import {LoadingModule} from "src/app/shared/modules/loading/loading.module";
 
 

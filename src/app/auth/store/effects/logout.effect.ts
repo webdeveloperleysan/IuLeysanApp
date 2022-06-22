@@ -13,8 +13,8 @@ export class LogoutEffect {
       this.actions$.pipe(
         ofType(logoutAction),
         tap(() => {
-          this.persistanceService.set('accessToken', '')
-          this.router.navigateByUrl('/')
+          this.persistanceService.set('accessToken', '') // rewrite token as empty string - when log out no token
+          this.router.navigateByUrl('/') // after logout user automatically jumps to the Homepage
         })
       ),
     {dispatch: false}

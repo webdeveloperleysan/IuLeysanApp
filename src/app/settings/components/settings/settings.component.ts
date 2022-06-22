@@ -17,17 +17,18 @@ import {logoutAction} from "src/app/auth/store/actions/sync.action";
   styleUrls: ['./settings.component.scss']
 })
 export class SettingsComponent implements OnInit, OnDestroy {
-  form: FormGroup
   currentUser: CurrentUserInterface
   currentUserSubscription: Subscription
+  form: FormGroup
   isSubmitting$: Observable<boolean>
   backendErrors$: Observable<BackendErrorsInterface | null>
 
   constructor(private fb: FormBuilder, private store: Store) {}
 
   ngOnInit(): void {
-    this.initializeValues()
     this.initializeListeners()
+    this.initializeValues()
+
   }
 
   ngOnDestroy(): void {
@@ -49,10 +50,10 @@ export class SettingsComponent implements OnInit, OnDestroy {
 
   initializeForm(): void {
     this.form = this.fb.group({
-      image: this.currentUser.image,
-      username: this.currentUser.username,
-      bio: this.currentUser.bio,
-      email: this.currentUser.email,
+      image: this.currentUser['image'],
+      username: this.currentUser['username'],
+      bio: this.currentUser['bio'],
+      email: this.currentUser['email'],
       password: ''
     })
   }

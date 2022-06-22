@@ -11,4 +11,4 @@ import {BackendErrorMessagesModule} from "src/app/shared/modules/backendErrorMes
   declarations:[ArticleFormComponent],
   exports: [ArticleFormComponent]
   })
-export  class ArticleFormModule {}
+export class ArticleFormModule {}

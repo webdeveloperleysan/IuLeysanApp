@@ -4,7 +4,7 @@ import {switchMap, map, catchError} from "rxjs";
 
 import {of} from "rxjs";
 
-import {ArticleService as SharedArticleService} from "src/app/shared/services/article.service";
+import {ArticleSharedService as SharedArticleService} from "src/app/shared/services/articleShared.service";
 import {
   getArticleAction,
   getArticleFailureAction,

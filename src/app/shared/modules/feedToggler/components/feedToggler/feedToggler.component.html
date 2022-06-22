@@ -1,11 +1,13 @@
 <div class="feed-toggle">
   <ul class="nav nav-pills outline-active">
+<!--    this <li> will bw only when user logged in-->
     <li class="nav-item" *ngIf="isLoggedIn$ | async">
+<!--      routerLinkActive="active" to highlight active <a>-->
       <a [routerLink]="['/feed']" class="nav-link" routerLinkActive="active">
-        Your feed
+        My reading
       </a>
     </li>
-
+    <!--    this <li> can see everyone-->
     <li class="nav-item">
       <a
         [routerLink]="['/']"
@@ -13,10 +15,10 @@
         routerLinkActive="active"
         [routerLinkActiveOptions]="{exact: true}"
       >
-        Global feed
+        Global reading
       </a>
     </li>
-
+    <!--    this <li> only when tag is clicked-->
     <li class="nav-item" *ngIf="tagNameProps">
       <a [routerLink]="['/tags', tagNameProps]" class="nav-link" routerLinkActive="active">
         <i class="ion-pound"></i>

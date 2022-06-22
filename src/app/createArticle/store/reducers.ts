@@ -13,14 +13,18 @@ const initialState: CreateArticleStateInterface ={
 }
 
 const createArticleReducer = createReducer(
+  // supply the initial state
   initialState,
+  //add the action 'Create Article' and returning new state
   on(
     createArticleAction,
     (state): CreateArticleStateInterface =>({
+      //spread operator taking existing state, duplicate it and adding necessary modification
       ...state,
       isSubmitting: true
     })
   ),
+  //how to handle when success
   on(
     createArticleSuccessAction,
     (state): CreateArticleStateInterface =>({
@@ -28,6 +32,7 @@ const createArticleReducer = createReducer(
       isSubmitting: false
     })
   ),
+  //how to handle when failure
   on(
     createArticleFailureAction,
     (state, action): CreateArticleStateInterface =>({

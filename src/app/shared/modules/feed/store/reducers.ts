@@ -23,6 +23,7 @@ const feedReducer = createReducer(
     (state, action): FeedStateInterface => ({
       ...state,
       isLoading: false,
+      //feed from GetFeedResponseInterface which I get from api
       data: action.feed
     })
   ),
@@ -33,6 +34,7 @@ const feedReducer = createReducer(
       isLoading: false
     })
   ),
+  // when navigation between pages, data of the feed becomes Initial state, and user sees Loading of the page
   on(routerNavigationAction, (): FeedStateInterface => initialState)
 )
 

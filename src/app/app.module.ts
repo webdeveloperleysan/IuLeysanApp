@@ -25,17 +25,18 @@ import {UserProfileModule} from "./userProfile/userProfile.module";
   declarations: [
     AppComponent
   ],
+  // add all modules here so that they are present in the application
   imports: [
-    BrowserModule,
+    BrowserModule, //module needed to work with the browser
     AppRoutingModule,
     AuthModule,
     HttpClientModule,
     StoreModule.forRoot({router: routerReducer}),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({
-      maxAge: 25, // Retains last 25 states
-      logOnly: environment.production, // Restrict extension to log-only mode
-      autoPause: true, // Pauses recording actions and state changes when the extension window is not open
+      maxAge: 25,
+      logOnly: environment.production,
+      autoPause: true
     }),
     StoreRouterConnectingModule.forRoot(),
     TopBarModule,
@@ -54,9 +55,8 @@ import {UserProfileModule} from "./userProfile/userProfile.module";
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-
     }
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

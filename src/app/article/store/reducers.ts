@@ -33,7 +33,8 @@ const articleReducer = createReducer(
       isLoading: false
     })
   ),
-  on(routerNavigationAction, (): ArticleStateInterface => initialState) //clean all data and return initial state
+  //clean all data in reducer when navigate between articles and return initial state
+  on(routerNavigationAction, (): ArticleStateInterface => initialState)
 )
 
 export function reducers(state: ArticleStateInterface, action: Action){

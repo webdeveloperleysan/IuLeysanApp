@@ -13,9 +13,12 @@ import {loginAction, loginFailureAction, loginSuccessAction} from "src/app/auth/
 export class LoginEffect{
   login$ = createEffect(()=>this.actions$.pipe(
     ofType(loginAction),
+    //i get request from loginRequestInterface
     switchMap(({request}) => {
       return this.authService.login(request).pipe(
+        //login request get current user
         map((currentUser: CurrentUserInterface) => {
+          //I get token of current user
           this.persistanceService.set('accessToken', currentUser.token)
           return loginSuccessAction({currentUser})
         }),
@@ -26,6 +29,7 @@ export class LoginEffect{
     })
   ))
 
+  //redirect to home page after success login
   redirectAfterSubmit$ = createEffect(
     () =>
       this.actions$.pipe(
@@ -39,6 +43,6 @@ export class LoginEffect{
 
   constructor(private actions$: Actions,
               private authService: AuthService,
-              private persistanceService: PersistanceService,
+              private persistanceService: PersistanceService,// write token after success login
               private router: Router) {}
 }

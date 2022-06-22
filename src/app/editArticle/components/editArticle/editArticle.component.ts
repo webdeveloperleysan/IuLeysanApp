@@ -30,11 +30,11 @@ export class EditArticleComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.initialValues()
+    this.initializeValues()
     this.fetchData()
   }
 
-  initialValues():void {
+  initializeValues():void {
     this.slug = this.route.snapshot.paramMap.get('slug')
     this.isSubmitting$ = this.store.pipe(select(isSubmittingSelector))
     this.isLoading$ = this.store.pipe(select(isLoadingSelector))
@@ -57,6 +57,6 @@ export class EditArticleComponent implements OnInit{
 
 
   onSubmit(articleInput: ArticleInputInterface): void {
-    this.store.dispatch(updateArticleAction({slug: this.slug, articleInput}))
+    this.store.dispatch(updateArticleAction({articleInput, slug: this.slug}))
   }
 }

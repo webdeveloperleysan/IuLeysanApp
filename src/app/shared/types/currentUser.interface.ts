@@ -8,3 +8,4 @@ export interface CurrentUserInterface {
   image: string | null
   token: string
 }
+

@@ -6,7 +6,9 @@ import {GetFeedResponseInterface} from "src/app/shared/modules/feed/types/getFee
 import {errorSelector, feedSelector, isLoadingSelector} from "src/app/shared/modules/feed/store/selectors";
 import {environment} from "src/environments/environment";
 import {ActivatedRoute, Params, Router} from "@angular/router";
-import {parseUrl, stringify} from "query-string";
+import {ParsedUrl, ParseOptions, parseUrl, stringify} from "query-string";
+
+
 
 
 @Component({
@@ -15,6 +17,7 @@ import {parseUrl, stringify} from "query-string";
   styleUrls:['./feed.component.scss']
 })
 export class FeedComponent implements OnInit, OnDestroy, OnChanges {
+  // outside apiUrl, inside apiUrlProps
   @Input('apiUrl') apiUrlProps: string
 
   isLoading$: Observable<boolean>
@@ -32,7 +35,8 @@ export class FeedComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   ngOnInit(): void {
-    console.log('initialize feed', this.apiUrlProps)
+
+    console.log('initialized feed', ['apiUrlProps'])
     this.initializeValues()
     this.initializeListeners()
   }
@@ -54,8 +58,11 @@ export class FeedComponent implements OnInit, OnDestroy, OnChanges {
 
 
   initializeListeners(): void {
+
     this.queryParamsSubscription = this.route.queryParams.subscribe(
       (params: Params) => {
+        //converting string page to number
+        //when params['page'] is not exist, I will take string with the value 1
         this.currentPage = Number(params['page'] || '1')
         console.log('fetchFeed')
         this.fetchFeed()
@@ -71,10 +78,10 @@ export class FeedComponent implements OnInit, OnDestroy, OnChanges {
   }
 
 
-
   fetchFeed(): void {
     const offset = this.currentPage * this.limit - this.limit
-    const parsedUrl = parseUrl(this.apiUrlProps)
+    //get parameters from url
+    const parsedUrl = parseUrl(this['apiUrlProps'])
     const stringifiedParams = stringify({
       limit: this.limit,
       offset,

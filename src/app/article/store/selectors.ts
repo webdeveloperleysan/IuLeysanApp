@@ -4,7 +4,6 @@ import {createFeatureSelector, createSelector} from "@ngrx/store";
 
 
 export const articleFeatureSelector = createFeatureSelector<
-  //AppStateInterface,
   ArticleStateInterface
   >('article')
 

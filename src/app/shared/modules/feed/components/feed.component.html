@@ -1,38 +1,40 @@
 <iula-loading *ngIf="isLoading$ | async"></iula-loading>
 
 <iula-error-message *ngIf="error$ | async"></iula-error-message>
-
+<!--? - elvis operator "null-save navigation operator", when (feed$ | async) is null, I get undefined-->
 <div *ngIf="feed$ | async">
-  <div class="article-preview" *ngFor="let article of (feed$ | async)?.['articles']">
+  <div class="article-preview" *ngFor="let article of (feed$ | async)?.articles">
     <div class="article-meta">
-      <a [routerLink]="['/profiles', article['author'].username]">
-        <img [src]="article['author'].image"  alt="Author of the article"/>
+      <a [routerLink]="['/profiles', article.author.username]">
+        <img [src]="article.author.image" alt="Author of the article"/>
       </a>
 
       <div class="info">
-        <a [routerLink]="['/profiles', article['author'].username]" class="author">
-          {{article['author'].username}}
+        <a [routerLink]="['/profiles', article.author.username]" class="author">
+          {{ article.author.username }}
         </a>
         <span class="date">{{ article['createdAt'] }}</span>
       </div>
       <div class="pull-xs-right">
         <iula-add-to-favorites
           [isFavorited]="article.favorited"
-          [articleSlug]="article.slug"
+          [articleSlug]="article['slug']"
           [favoritesCount]="article.favoritesCount"
         >
         </iula-add-to-favorites>
       </div>
     </div>
     <a [routerLink]="['/articles', article['slug']]" class="preview-link">
-      <h1>{{article.title}}</h1>
-      <p>{{article.description}}</p>
+      <h1>{{ article.title }}</h1>
+      <p>{{ article.description }}</p>
       <span>Read more..</span>
-      <iula-tag-list [tags]="article['tagList']"></iula-tag-list>
+      <iula-tag-list [tags]="article.tagList"></iula-tag-list>
     </a>
   </div>
+  <!--    I get articles count - total amount)-->
+<!--  limit - how many articles per page-->
   <iula-pagination
-    [total]="(feed$ | async)?.['articlesCount']"
+    [total]="(feed$ | async).articlesCount"
     [limit]="limit"
     [url]="baseUrl"
     [currentPage]="currentPage"

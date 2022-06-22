@@ -8,6 +8,7 @@ import {SaveArticleResponseInterface} from "src/app/shared/types/saveArticleResp
 
 @Injectable ()
 export class CreateArticleService {
+
   constructor(private http: HttpClient) {}
 
   createArticle(
@@ -22,5 +23,7 @@ export class CreateArticleService {
           return response.article
         })
       )
+
+
   }
 }

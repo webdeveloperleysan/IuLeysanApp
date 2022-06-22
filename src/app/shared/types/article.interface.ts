@@ -13,3 +13,4 @@ export interface ArticleInterface{
   favorited: boolean
   favoritesCount: number
 }
+

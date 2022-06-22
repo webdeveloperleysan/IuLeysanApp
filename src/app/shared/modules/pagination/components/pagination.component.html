@@ -3,6 +3,7 @@
       class="page-item"
       [ngClass]="{active: currentPageProps === page}"
   >
+<!--    [ngClass] highlights current active page in pagination-->
     <a [routerLink]="[urlProps]" [queryParams]="{page: page}" class="page-link" >
       {{page}}
     </a>

@@ -2,8 +2,8 @@ import {BackendErrorsInterface} from "src/app/shared/types/backendErrors.interfa
 import {ArticleInterface} from "src/app/shared/types/article.interface";
 
 export interface EditArticleStateInterface {
-  isLoading:boolean
-  article: ArticleInterface | null
+  isLoading: boolean
+  article: ArticleInterface | null //  article after fetch - ArticleInterface
   isSubmitting: boolean
   validationErrors: BackendErrorsInterface | null
 }

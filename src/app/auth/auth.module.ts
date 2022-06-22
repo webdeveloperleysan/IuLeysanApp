@@ -15,10 +15,12 @@ import {LoginEffect} from "src/app/auth/store/effects/login.effect";
 import {LoginComponent} from "src/app/auth/components/login/login.component";
 import {GetCurrentUserEffect} from "src/app/auth/store/effects/getCurrentUser.effect";
 import {UpdateCurrentUserEffect} from "./store/effects/updateCurrentUser.effect";
+import {LogoutEffect} from "./store/effects/logout.effect";
+
 
 const routes: Routes = [
   {
-    path: 'register',
+    path: 'register', //the path along which we render the component (localhost:4200/register)
     component: RegisterComponent
   },
   {
@@ -26,23 +28,28 @@ const routes: Routes = [
     component: LoginComponent
   }
 ]
-
+//@NgModule defines the class as an Angular module
+//NgModule represents a decorator function that takes an object whose properties describe the module's metadata
 @NgModule({
+  //imports - other modules whose classes are required for the component templates from the current module
   imports: [
     CommonModule,
-    RouterModule.forChild(routes),
-    ReactiveFormsModule,
+    RouterModule.forChild(routes), // when register routes for modules  - use forChild
+    ReactiveFormsModule,// Reactive Forms creates a set of FormGroup and FormControl objects for a form.
+    // The form itself and its subsections represent the FormGroup class, and individual input elements represent the FormControl class
     StoreModule.forFeature('auth', reducers),
     EffectsModule.forFeature([
       RegisterEffect,
       LoginEffect,
       GetCurrentUserEffect,
       UpdateCurrentUserEffect,
-      LoginEffect
+      LogoutEffect
     ]),
     BackendErrorMessagesModule
   ],
+  //declarations - view classes that belong to the module.
   declarations: [RegisterComponent, LoginComponent],
+  //providers - classes that create the services used by the module
   providers: [AuthService, PersistanceService]
 })
 export class AuthModule {

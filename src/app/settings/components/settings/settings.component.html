@@ -3,10 +3,12 @@
     <div class="row">
       <div class="col-md-6 offset-md-3 col-xs-12">
         <h1 class="text-xs-center">Settings</h1>
+
         <iula-backend-error-messages
           *ngIf="backendErrors$ | async"
           [backendErrors]="backendErrors$ | async"
         ></iula-backend-error-messages>
+
         <form [formGroup]="form" (ngSubmit)="submit()">
           <fieldset>
             <fieldset class="form-group">
@@ -31,7 +33,7 @@
               <textarea
                 class="form-control form-control-lg"
                 formControlName="bio"
-                placeholder="Short bio about you"
+                placeholder="Please write your faculty and specialization"
               ></textarea>
             </fieldset>
 
@@ -49,7 +51,7 @@
                 type="password"
                 class="form-control form-control-lg"
                 formControlName="password"
-                placeholder="New password"
+                placeholder="Password"
               />
             </fieldset>
             <button
@@ -62,7 +64,7 @@
           </fieldset>
         </form>
         <hr/>
-        <button class="btn btn-outline-danger" (click)="logout()" type="text">
+        <button class="btn btn-outline-danger" (click)="logout()">
           Or click here to logout
         </button>
       </div>

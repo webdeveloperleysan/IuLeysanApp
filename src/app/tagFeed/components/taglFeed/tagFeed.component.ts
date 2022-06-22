@@ -13,10 +13,11 @@ export class TagFeedComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    //subscribe on parameters changes
     this.route.params.subscribe((params: Params) =>{
       console.log('params in tagFeed', params)
 
-      //this.tagName = this.route.snapshot.paramMap.get('slug') // here we can read our dynamic slug from tagFeed.module.ts
+      // here we can read our dynamic slug from tagFeed.module.ts
       this.tagName = params["slug"]
       this.apiUrl = `/articles?tag=${this.tagName}`
     })

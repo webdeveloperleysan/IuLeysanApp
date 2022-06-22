@@ -1,3 +1,4 @@
+//ngrx: describing all async actions types for the Auth module
 export enum ActionTypes {
   REGISTER = '[Auth] Register', //start
   REGISTER_SUCCESS = '[Auth] Register success',

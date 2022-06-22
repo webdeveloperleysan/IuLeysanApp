@@ -1,12 +1,11 @@
 import {createFeatureSelector, createSelector} from "@ngrx/store";
-import {AppStateInterface} from "../../shared/types/appState.interface";
 import {AuthStateInterface} from "src/app/auth/types/authState.interface";
 
 export const authFeatureSelector = createFeatureSelector<
-  //AppStateInterface,
   AuthStateInterface
 >('auth')
 
+//isSubmittingSelector - how we want to receive data in the component
 export const isSubmittingSelector = createSelector(
   authFeatureSelector,
   (authState:AuthStateInterface) =>authState.isSubmitting
@@ -22,6 +21,7 @@ export const isLoggedInSelector = createSelector(
   (authState: AuthStateInterface)=>authState.isLoggedIn
 )
 
+//isAnonymous shows that user is not logged in
 export const isAnonymousSelector = createSelector(
   authFeatureSelector,
   (authState: AuthStateInterface)=>authState.isLoggedIn === false

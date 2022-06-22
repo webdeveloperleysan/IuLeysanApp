@@ -10,23 +10,28 @@ import {
 import {updateCurrentUserSuccessAction} from "./actions/updateCurrentUser.action";
 import {logoutAction} from "./actions/sync.action";
 
+// describing initial state
 const initialState: AuthStateInterface = {
   isSubmitting: false,
   isLoading: false,
   currentUser: null,
-  validationErrors: null,
-  isLoggedIn: null
+  isLoggedIn: null,
+  validationErrors: null
 }
-
+//describing methods which change initial state
 const authReducer = createReducer(
-  initialState,
-  on(registerAction,
-    (state): AuthStateInterface => ({
+  initialState, // at the first state the input takes the initial state
+  // registerAction started
+  on(registerAction, // the second parameter is the function that change the initial state
+    (state): AuthStateInterface => ({ //want to return AuthStateInterface
+      //here returning a new object with overwriting isSubmitting
       ...state,
       isSubmitting: true,
+      //if user try sing up after wrong inputs, old errors should be deleted
       validationErrors: null
     })
   ),
+  // registerAction successful
   on(registerSuccessAction,
     (state, action): AuthStateInterface => ({
       ...state,
@@ -35,6 +40,7 @@ const authReducer = createReducer(
       currentUser: action.currentUser
     })
   ),
+  // registerAction failed
   on(registerFailureAction,
     (state, action): AuthStateInterface => ({
       ...state,

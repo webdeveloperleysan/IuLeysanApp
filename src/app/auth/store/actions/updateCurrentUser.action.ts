@@ -6,11 +6,13 @@ import {CurrentUserInputInterface} from "src/app/shared/types/currentUserInput.i
 
 export const updateCurrentUserAction = createAction(
   ActionTypes.UPDATE_CURRENT_USER,
+  //i sent this data
   props<{currentUserInput: CurrentUserInputInterface}>()
 )
 
 export const updateCurrentUserSuccessAction = createAction(
   ActionTypes.UPDATE_CURRENT_USER_SUCCESS,
+  //I get this data then success
   props<{currentUser: CurrentUserInterface}>()
 )
 

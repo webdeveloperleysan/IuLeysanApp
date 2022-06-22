@@ -1,9 +1,12 @@
+<!-- html using bootstrap classes-->
 <div class="auth-page">
   <div class="container page">
     <div class="row">
       <div class="col-md-6 offset-md-3 col-xs-12">
         <h1 class="text-xs-center">Sign Up</h1>
         <p class="text-xs-center">
+<!--          The [routerLink] attribute takes the value '/login', that matches the route to the Login-->
+<!--          I use an array ['/login'] in case if I will need to concatenate or changed [routerLink]-->
           <a [routerLink]="['/login']">Have an account?</a>
         </p>
 
@@ -11,10 +14,12 @@
           *ngIf="backendErrors$ | async"
           [backendErrors]="backendErrors$ | async"
         ></iula-backend-error-messages>
-
+<!--        describe how the form is related to the variable by specifying the variable [formGroup]-->
+<!--        (ngSubmit) - event submit should be written in ()-->
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
           <fieldset>
             <fieldset class="form-group">
+ <!--  Each fieldset should be associated with a form, to do this formControl should be used,  specifying which input is associated with the certain value -->
               <input
                 type="text"
                 class="form-control form-control-lg"
@@ -22,6 +27,7 @@
                 formControlName="username"
               />
             </fieldset>
+
             <fieldset class="form-group">
               <input
                 type="text"
@@ -38,6 +44,7 @@
                 formControlName="password"
               />
             </fieldset>
+<!--            when submitting is true - button is disabled-->
             <button class="btn btn-lg btn-primary pull-xs-right" type="submit"
                     [disabled]="isSubmitting$ | async">
               Sign up

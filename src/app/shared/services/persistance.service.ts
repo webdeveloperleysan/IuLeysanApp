@@ -1,5 +1,6 @@
 import {Injectable} from "@angular/core";
 
+//here I have set and get methods from localStorage
 @Injectable()
 export class PersistanceService {
   set (key: string, data: any): void {
@@ -15,6 +16,7 @@ export class PersistanceService {
       return JSON.parse(localStorage.getItem(key) )
     }catch (e){
       console.error('Error getting data from localStorage', e)
+      //after error application continue to work with null
       return null
     }
   }

@@ -9,7 +9,7 @@ import {FeedTogglerModule} from "../shared/modules/feedToggler/feedToggler.modul
 
 const routes = [
   {
-    path:'tags/:slug', // :slug - dynamic var, could be any text in the app
+    path:'tags/:slug', // :slug - dynamic variable
     component: TagFeedComponent
   }
 ]

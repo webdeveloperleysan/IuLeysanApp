@@ -42,10 +42,10 @@ export class UserProfileComponent implements OnInit, OnDestroy {
     this.slug = this.route.snapshot.paramMap.get('slug')
     this.isLoading$ = this.store.pipe(select(isLoadingSelector))
     this.error$ = this.store.pipe(select(errorSelector))
-    this.isCurrentUserProfile$ = combineLatest(     // combine several streams
+    this.isCurrentUserProfile$ = combineLatest( [   // combine several streams
       this.store.pipe(select(currentUserSelector), filter(Boolean)),
       this.store.pipe(select(userProfileSelector), filter(Boolean))
-    ).pipe(
+    ]).pipe(
       map(
         ([currentUser, userProfile]: [
           CurrentUserInterface,

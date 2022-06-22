@@ -11,15 +11,17 @@ import {Router} from "@angular/router";
 
 @Injectable()
 export class RegisterEffect{
-  register$ = createEffect(()=>this.actions$.pipe(
-    ofType(registerAction),
+  register$ = createEffect(()=>this.actions$.pipe( //here I get all actions
+    ofType(registerAction), //here I filter only register action
     switchMap(({request}) => {
       return this.authService.register(request).pipe(
         map((currentUser: CurrentUserInterface) => {
+          //save token in the local storage after registration
           this.persistanceService.set('accessToken', currentUser.token)
           return registerSuccessAction({currentUser})
         }),
         catchError((errorResponse: HttpErrorResponse) => {
+          // extract errors and returning errors object
           return of(registerFailureAction({errors:errorResponse.error.errors}))
         })
       )
@@ -29,6 +31,7 @@ export class RegisterEffect{
   redirectAfterSubmit$ = createEffect(
     () =>
       this.actions$.pipe(
+        //if register successfully redirect will happen
     ofType(registerSuccessAction),
     tap(()=> {
       this.router.navigateByUrl('/')

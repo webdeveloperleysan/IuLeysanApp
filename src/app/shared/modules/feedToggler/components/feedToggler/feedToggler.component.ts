@@ -8,8 +8,8 @@ import {isLoggedInSelector} from "src/app/auth/store/selectors";
   templateUrl: './feedToggler.component.html'
 })
 export class FeedTogglerComponent implements OnInit{
-  @Input('tagName') tagNameProps: string
-
+  @Input('tagName') tagNameProps: string | null
+// to know if user logged in
   isLoggedIn$: Observable<boolean>
 
   constructor(private store: Store) {

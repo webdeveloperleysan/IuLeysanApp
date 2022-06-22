@@ -3,10 +3,11 @@ import {map, Observable} from "rxjs";
 import {environment} from "src/environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {GetArticleResponseInterface} from "src/app/shared/types/getArticleResponse.interface";
-import {ArticleInterface} from "../types/article.interface";
+import {ArticleInterface} from "src/app/shared/types/article.interface";
+
 
 @Injectable()
-export class ArticleService {
+export class ArticleSharedService {
   constructor(private http: HttpClient) {
   }
   getArticle(slug: string): Observable<ArticleInterface>{

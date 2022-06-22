@@ -9,11 +9,12 @@ export const createArticleAction = createAction(
   props<{articleInput: ArticleInputInterface}>()
 )
 
+//here is what happening when article created successfully
 export const createArticleSuccessAction = createAction(
   ActionTypes.CREATE_ARTICLE_SUCCESS,
   props<{article: ArticleInterface}>()
 )
-
+//here is what happening when article creation is failed
 export const createArticleFailureAction = createAction(
   ActionTypes.CREATE_ARTICLE_FAILURE,
   props<{errors: BackendErrorsInterface}>()
