@@ -23,6 +23,8 @@ export class UserProfileComponent implements OnInit, OnDestroy {
   apiUrl: string
   isCurrentUserProfile$: Observable<boolean>
 
+
+
   constructor(
     private store: Store,
     private route: ActivatedRoute,
@@ -80,4 +82,5 @@ export class UserProfileComponent implements OnInit, OnDestroy {
   fetchUserProfile(): void {
     this.store.dispatch(getUserProfileAction({slug: this.slug}))
   }
+
 }

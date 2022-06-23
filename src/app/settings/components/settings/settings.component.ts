@@ -61,10 +61,14 @@ export class SettingsComponent implements OnInit, OnDestroy {
   submit(): void {
     const currentUserInput: CurrentUserInputInterface = {
       ...this.currentUser,
-      ...this.form.value
+      ...this.form.value,
+      user: this.form.value
     }
     this.store.dispatch(updateCurrentUserAction({currentUserInput}))
+
   }
+
+
 
   logout(): void {
     this.store.dispatch(logoutAction())

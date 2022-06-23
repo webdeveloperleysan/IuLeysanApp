@@ -35,8 +35,11 @@ export class ArticleFormComponent implements OnInit {
     })
   }
 
-  onSubmit(): void{
-    this.articleSubmitEvent.emit(this.form.value)
-
+  onSubmit(): void {
+    this.articleSubmitEvent.emit({article: this.form.value} as any)
   }
+
+  // onSubmit(): void {
+  //   this.articleSubmitEvent.emit(this.form.value)
+  // }
 }

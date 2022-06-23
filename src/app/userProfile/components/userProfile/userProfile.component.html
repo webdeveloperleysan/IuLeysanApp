@@ -7,13 +7,20 @@
           <h4>{{ userProfile.username }}</h4>
           <p>{{ userProfile.bio }}</p>
           <div>
-            FOLLOW USER BUTTON
+<!--            follow-button only on the other users profile-->
+            <iula-follow-button
+              [isFollowing]="userProfile.following"
+              [hidden]="isCurrentUserProfile$ | async"
+              [profile]="userProfile"
+            >
+            </iula-follow-button>
+            <!--           Edit Profile only on the current users profile-->
             <a
               *ngIf="isCurrentUserProfile$ | async"
               class="btn btn-sm btn-outline-secondary action-btn"
               [routerLink]="['/settings']"
-            >Edit Profile Settings</a
-            >
+            >Edit Profile Settings
+            </a>
           </div>
         </div>
       </div>
