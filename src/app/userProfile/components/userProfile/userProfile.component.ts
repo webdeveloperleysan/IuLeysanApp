@@ -83,4 +83,5 @@ export class UserProfileComponent implements OnInit, OnDestroy {
     this.store.dispatch(getUserProfileAction({slug: this.slug}))
   }
 
+
 }

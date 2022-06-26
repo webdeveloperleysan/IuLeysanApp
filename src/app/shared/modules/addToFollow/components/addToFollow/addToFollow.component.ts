@@ -13,7 +13,7 @@ export class AddToFollowComponent implements OnInit {
 
 
   isFollowing: boolean
-  private profileSlugProps: string;
+  profileSlugProps: string;
 
   constructor(private store: Store) {
   }
@@ -30,17 +30,10 @@ export class AddToFollowComponent implements OnInit {
           slug: this.profileSlugProps
         }
       ))
+
+
     this.isFollowing = !this.isFollowing
 
-    function isFollowing (){
-      return ('Follow')
-    }
-
-    // if (this.isFollowing) {
-    //   return 'Follow'
-    // } else {
-    //   return 'Unfollow'
-    // }
   }
   }
 

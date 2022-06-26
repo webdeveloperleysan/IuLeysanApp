@@ -9,5 +9,5 @@
   (click)="toggleFollowing()">
   <i class="ion-plus-round"></i>
   &nbsp;
-  {{isFollowing}} {{ profile.username }}
+  {{isFollowing ? 'Unfollow' : 'Follow'}} {{ profile.username }}
 </button>
