@@ -11,9 +11,7 @@ export class AddToFollowComponent implements OnInit {
   @Input('isFollowing') isFollowingProps: boolean
   @Input('profile') profile: ProfileInterface
 
-
   isFollowing: boolean
-  profileSlugProps: string;
 
   constructor(private store: Store) {
   }
@@ -26,8 +24,8 @@ export class AddToFollowComponent implements OnInit {
   toggleFollowing() {
     this.store.dispatch(
       addToFollowingAction({
-          isFollowing: this.isFollowing,
-          slug: this.profileSlugProps
+        isFollowing: this.isFollowing,
+        slug: this.profile.username
         }
       ))
 

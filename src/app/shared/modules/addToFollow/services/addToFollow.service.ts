@@ -1,6 +1,5 @@
 import {Injectable} from "@angular/core";
 import {map, Observable} from "rxjs";
-import {CurrentUserInterface} from "../../../types/currentUser.interface";
 import {environment} from "../../../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {GetUserProfileResponseInterface} from "../../../../userProfile/types/getUserProfileResponse.interface";

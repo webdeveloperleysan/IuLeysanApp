@@ -13,7 +13,7 @@ import {AddToFollowService} from "../../services/addToFollow.service";
 
 @Injectable()
 export class AddToFollowingEffect {
-  // @ts-ignore
+
   addToFollowing$ = createEffect(() => {
       return this.actions$.pipe(
         ofType(addToFollowingAction),
@@ -22,7 +22,7 @@ export class AddToFollowingEffect {
           const profile$ = isFollowing
             ? this.addToFollowService.removeFromFollowing(slug)
             : this.addToFollowService.addToFollowing(slug)
-          // @ts-ignore
+
           return profile$.pipe(
             map((profile: ProfileInterface) => {
               return addToFollowingSuccessAction({profile})

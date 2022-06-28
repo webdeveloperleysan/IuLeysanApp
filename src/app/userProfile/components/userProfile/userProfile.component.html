@@ -12,13 +12,15 @@
               [isFollowing]="userProfile.following"
               [hidden]="isCurrentUserProfile$ | async"
               [profile]="userProfile"
-
             >
+<!--              [usernameSlug]="username.slug"-->
+
+
             </iula-follow-button>
             <!--           Edit Profile only on the current users profile-->
             <a
               *ngIf="isCurrentUserProfile$ | async"
-              class="btn btn-sm btn-outline-secondary action-btn"
+              class="btn btn-sm btn-warning action-btn"
               [routerLink]="['/settings']"
             >Edit Profile Settings
             </a>
@@ -39,7 +41,7 @@
                 routerLinkActive="active"
                 [routerLinkActiveOptions]="{ exact: true}">
 
-                My Posts
+                {{ userProfile.username}} Posts
               </a>
             </li>
             <li class="nav-item">
