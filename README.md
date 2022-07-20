@@ -14,6 +14,11 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
+## Architecture diagram 
+
+<img width="508" alt="Architecture diagram" src="https://user-images.githubusercontent.com/72350744/179960785-03b175bf-1909-4836-9040-fcfcea2ec157.png">
+
+
 ## Test cases for my solution
 
 Registration<br/>
