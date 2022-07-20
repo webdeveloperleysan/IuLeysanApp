@@ -7,7 +7,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - Angular (in the poject I used: Angular CLI: 13.3.5)<br/>
 - Node.js (in the poject I used: Node.js 16.15.0 )<br/>
 - NgRx   (wrapper of Redux )<br/>
-- Yarn (if you use Yarn to manage the dependencies)<br/>
+
 
 
 ## Installation and run instructions
