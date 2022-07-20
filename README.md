@@ -2,17 +2,30 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.5.
 
+## Libraries necessary 
+
+- Angular (in the poject I used: Angular CLI: 13.3.5)<br/>
+- Node.js (in the poject I used: Node.js 16.15.0 )<br/>
+- NgRx   (wrapper of Redux )<br/>
+- Yarn (if you use Yarn to manage the dependencies)<br/>
+
+
+## Installation and run instructions
+
+- Install Node.js. If you have it on your machine, you can check version from the terminal, using this command:  $ npm-v) <br/>
+- Install Angular CLI. From the terminal, install the Angular CLI globally with: npm install -g @angular/cli <br/>
+- Install NgRx.  From the terminal with:	$ npm install @ngrx/stor<br/>
+
+
+Run from the ternimal (choose one of the options):<br/>
+$ npm run start<br/>
+$ yarn start (if you use Yarn to manage the dependencies)
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
 ## Architecture diagram 
 
@@ -41,10 +54,10 @@ User Settings update<br/>
 Like/dislike articles<br/>
 •	Go to the home page: http://localhost:4200/ <br/>
 •	Hit Global reading<br/>
-•	Like article<br/>
-•	Update the page and check that like didn’t disappear<br/>
-•	Dislike article<br/>
-•	Update the page and check that dislike didn’t disappear<br/>
+•	"Like" article<br/>
+•	Update the page and check that "like" didn’t disappear<br/>
+•	"Dislike" article<br/>
+•	Update the page and check that "dislike" didn’t disappear<br/>
  
 Follow/unfollow other users<br/>
 •	Go to the home page: http://localhost:4200/ <br/>
