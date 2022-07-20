@@ -14,14 +14,39 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Test cases for my solution
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Registration
+•	Check routes path: http://localhost:4200/register
+•	Backend errors during sign-up when data is wrong 
+•	Check that possible to register when everything is correct
+Log In – Sign In
+•	Check routes path: http://localhost:4200/login 
+•	Backend errors during sing-in when data is wrong 
+•	Check that possible to log in when everything is correct
+Posting new article
+•	Check routes path: http://localhost:4200/articles/new 
+•	Backend errors if article inputs empty› 
+•	Check that possible to post the article when everything is correct http://localhost:4200/articles/dfgdfg-57244 
+•	Check that possible to edit and delete an article
+User Settings update
+•	Check routes path: http://localhost:4200/settings 
+•	Check that possible to upload a new picture, change faculty and update these settings pushing the button
+•	Check that possible to logout
+Like/dislike articles
+•	Go to the home page: http://localhost:4200/ 
+•	Hit Global reading
+•	Like article
+•	Update the page and check that like didn’t disappear
+•	Dislike article
+•	Update the page and check that dislike didn’t disappear
+ 
+Follow/unfollow other users
+•	Go to the home page: http://localhost:4200/ 
+•	Click on the other user and go to his profile page http://localhost:4200/profiles/Username 
+•	Follow user
+•	Update the page and check that following didn’t disappear
+•	Unfollow user
+•	Update the page and check that unfollowing didn’t disappear
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
