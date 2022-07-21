@@ -4,8 +4,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Libraries necessary 
 
-- Angular (in the poject I used: Angular CLI: 13.3.5)<br/>
-- Node.js (in the poject I used: Node.js 16.15.0 )<br/>
+- Angular (in the project I used: Angular CLI: 13.3.5)<br/>
+- Node.js (in the project I used: Node.js 16.15.0 )<br/>
 - NgRx   (wrapper of Redux )<br/>
 
 
@@ -17,7 +17,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - Install NgRx.  From the terminal with:	$ npm install @ngrx/stor<br/>
 
 
-Run from the ternimal (choose one of the options):<br/>
+Run from the terminal (choose one of the options):<br/>
 $ npm run start<br/>
 $ yarn start (if you use Yarn to manage the dependencies)
 
@@ -35,7 +35,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 ## Test cases for my solution
 
 Registration<br/>
-•	Check routes path: http://localhost:4200/register<br/>
+•	Check routes path: http://localhost:4200/register <br/>
 •	Backend errors during sign-up when data is wrong <br/>
 •	Check that possible to register when everything is correct<br/>
 Log In – Sign In<br/>
